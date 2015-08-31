@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case $1 in
+  ksh|zsh) time "$1" mandelbrot "${2-200}" > "$1-${2-200}.pbm" ;;
+       ?*) echo Error >&2 ;;
+        *) time ksh mandelbrot "${2-200}" > "ksh-${2-200}.pbm"
+           time zsh mandelbrot "${2-200}" > "zsh-${2-200}.pbm"
+esac
